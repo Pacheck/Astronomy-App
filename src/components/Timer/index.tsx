@@ -45,7 +45,7 @@ const Timer: React.FC<NAV> = ({ navigation }) => {
 
   const seconds = (counter/1000)%60
   const minutes = (counter/(1000 * 60))%60
-  const CounterTime = `${minutes.toFixed(0)}:${seconds}`
+  const CounterTime = `${minutes.toFixed(0)}:${seconds < 10 ? '0' + seconds : seconds}`
   
   return (
     <Container>
