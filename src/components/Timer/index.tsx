@@ -11,14 +11,22 @@ interface NAV {
   navigation: NavigationScreenProp<any>;
 }
 
+interface ICounter {
+  ms: number;
+  seconds: number;
+  minutes: number;
+}
+
 const Timer: React.FC<NAV> = ({ navigation }) => {
   const dispatch = useDispatch();
 
-  const [start, setStart] = useState(false)
+  const [start, setStart] = useState(false);
   const [counter, setCounter] = useState(600000);
-  
+  const [finalCounter, setFinalCounter] = useState<string>("");
+
   useEffect(() => {
     let id: any;
+
 
     if(counter === 600000){
       setStart(true);
@@ -33,7 +41,10 @@ const Timer: React.FC<NAV> = ({ navigation }) => {
       id = setInterval(() => {
         setCounter(counter - 1000);
       }, 1000);
-    }
+    }    
+
+    var result = `${Math.floor(counter/(1000*60))%60} : ${(Math.floor(counter/1000)%60) < 10 ? '0' + (Math.floor(counter/1000)%60) : (Math.floor(counter/1000)%60)}`;
+    setFinalCounter(result);
 
     return () => {
       if (id){
@@ -43,13 +54,11 @@ const Timer: React.FC<NAV> = ({ navigation }) => {
 
   }, [start, counter])
 
-  const seconds = (counter/1000)%60
-  const minutes = (counter/(1000 * 60))%60
-  const CounterTime = `${minutes.toFixed(0)}:${seconds < 10 ? '0' + seconds : seconds}`
   
+
   return (
     <Container>
-      <CounterText>{CounterTime}</CounterText>     
+      <CounterText>{finalCounter}</CounterText>     
     </Container>
   );
 };

@@ -34,7 +34,7 @@ const HomeScreen: React.FC<NAV> = ({ navigation }) => {
 
       <StartButton onPress={() => {
         navigation.navigate('Quiz'),
-        dispatch({ type: 'START_COUNT' })
+        dispatch({ type: 'CLEAR_STATE' })
       }}>
         <TextButton>Iniciar</TextButton>
       </StartButton>

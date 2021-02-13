@@ -44,8 +44,8 @@ export const AlternativeButton = styled.TouchableOpacity<Cuck>`
 `
 
 export const NextBackButton = styled.TouchableOpacity<BGCOLOR>`
-    padding: 15px 15px 20px 15px;
-    margin: 1px;
+    padding: 15px 15px 10px 15px;
+    margin: 0 1px;
     align-items: center;
     background-color: ${props => props.bgColor};
     flex: 1;
@@ -53,7 +53,7 @@ export const NextBackButton = styled.TouchableOpacity<BGCOLOR>`
 `
 
 export const NavButtons = styled.View`
-    margin-top: 4px;
+    margin-top: 2px;
     align-self: center;
     flex-direction: row;
 `

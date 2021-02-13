@@ -7,7 +7,7 @@ interface IState {
 }
 
 interface ActionType {
-    type: 'CHANGE';
+    type: 'CHANGE' | 'CLEAR_STATE';
     payload: { 
         questionID: number;
         id: string;
@@ -15,7 +15,7 @@ interface ActionType {
     };
 }
 
-const initialState = <Array<IState>>[{ answer: 'initial', id: '0', questionID: 0, correct: false}];
+const initialState = <Array<IState>>[{}];
 
 const reducer = (state = initialState, action: ActionType ) => {
 
@@ -23,6 +23,8 @@ const reducer = (state = initialState, action: ActionType ) => {
         case 'CHANGE':
             const arr = state.filter(res => res.questionID !== action.payload.questionID);
             return [...arr, action.payload]; //poder do 40hz
+        case 'CLEAR_STATE':
+            return initialState;
         default:
             return state;
     }
