@@ -37,6 +37,7 @@ export const Container = styled.View`
 
 export const AlternativeButton = styled.TouchableOpacity<Cuck>`
     padding: 5px 10px;
+    margin-bottom: 1px;
     width: 85%;
     align-self: center;
     background-color: ${props => props.isSelected ? '#22bd34' : '#e1e3e6'};
@@ -52,6 +53,7 @@ export const NextBackButton = styled.TouchableOpacity<BGCOLOR>`
 `
 
 export const NavButtons = styled.View`
+    margin-top: 4px;
     align-self: center;
     flex-direction: row;
 `
